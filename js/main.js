@@ -17,7 +17,7 @@ const renderProduct = (id, title, price = 0) => `<div class="product-item">
                                                     >Купить</button>
                                                 </div>`;
 const renderPage = list => {
-    const productsList = list.map(item => renderProduct(item.id, item.title, item.price));
+    const productsList = list.map(item => renderProduct(item.id, item.title, item.price)).join('');
     document.querySelector('.products').innerHTML = productsList;
 };
 
