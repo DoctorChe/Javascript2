@@ -6,11 +6,7 @@ class ProductsList {
         this._fetchGoods();
     }
     calcTotalCost(){
-        let result = 0;
-        for (let product of this.allProducts){
-            result += product.price;
-        }
-        return result;
+        return this.allProducts.reduce((accum, item) => accum += item.price, 0);
     }
     _fetchGoods(){
         this.goods = [
@@ -34,8 +30,11 @@ class ProductsList {
 class Product {
     constructor(item, img = 'https://placehold.it/200x150'){
         this.title = item.title;
-        this.price = item.price;
+        this._price = item.price;
         this.img = img;
+    }
+    get price(){
+        return this._price;
     }
     render(){
         return `<div class="product-item">
@@ -66,4 +65,4 @@ class BasketItem {
 
 const list = new ProductsList();
 list.render();
-// console.log(list.calcTotalCost());
+console.log(list.calcTotalCost());
