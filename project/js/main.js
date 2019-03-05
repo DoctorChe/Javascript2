@@ -1,21 +1,21 @@
 const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
-let getRequest = (url) => {
-    return new Promise((resolve, reject) => {
-        let xhr = new XMLHttpRequest();
-        // window.ActiveXObject -> xhr = new ActiveXObject('');
-        xhr.open('GET', url, true);
-        xhr.onreadystatechange = () => {
-            if (xhr.readyState === 4){
-                if(xhr.status !== 200){
-                    reject('Error!');
-                } else {
-                    resolve(xhr.responseText);
-                }
-            }
-        };
-        xhr.send();
-    })
-};
+// let getRequest = (url) => {
+//     return new Promise((resolve, reject) => {
+//         let xhr = new XMLHttpRequest();
+//         // window.ActiveXObject -> xhr = new ActiveXObject('');
+//         xhr.open('GET', url, true);
+//         xhr.onreadystatechange = () => {
+//             if (xhr.readyState === 4){
+//                 if(xhr.status !== 200){
+//                     reject('Error!');
+//                 } else {
+//                     resolve(xhr.responseText);
+//                 }
+//             }
+//         };
+//         xhr.send();
+//     })
+// };
 
 // getRequest('api').then()  // пример использования
 
@@ -25,7 +25,7 @@ class ProductsList {
         this.goods = [];
         this.allProducts = [];
         // this._fetchGoods();
-        this._getProducts();
+        this._getProducts().then(() => this.render());
         // .then(data => {
         //     this.goods = data;
         //     this.render();
@@ -52,11 +52,11 @@ class ProductsList {
     // }
 
     _getProducts(){
-        fetch(`${API}/catalogData.json`)
+        return fetch(`${API}/catalogData.json`)
             .then(result => result.json())
             .then(data => {
                 this.goods = data;
-                this.render()
+                // this.render()
             })
             .catch(error => console.log(error))
     }
