@@ -10,8 +10,11 @@
 <script>
     let str1 = '\'One\' is 1';
     const regexp1 = /'/g;
-
     console.log(str1.replace(regexp1, '"'));
+
+    let str2 = '\'One\' aren\'t Two';
+    const regexp2 = /'\B|\B'/g;
+    console.log(str2.replace(regexp2, '"'));
 
 </script>
 </html>
