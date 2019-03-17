@@ -1,16 +1,20 @@
 Vue.component('error', {
-    data() {
+    data(){
         return {
-            isError: false
+          text: ''
         }
     },
-    mounted() {
-
+    computed: {
+      isVisible(){
+          return this.text !== ''
+      }
     },
-    methods: {
-
-    },
-    template: `<div>
-                    <h2>Error</h2>
-               </div>`
-});
+    template: `
+    <div class="error-block" v-if="isVisible">
+        <p class="error-msg">
+        <button class="close-btn" @click="text=''">&times;</button>
+        {{ text }}
+        </p>
+    </div>
+    `
+})
