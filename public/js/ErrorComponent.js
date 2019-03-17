@@ -14,7 +14,7 @@ Vue.component('error', {
         <p class="error-msg">
         <button class="close-btn" @click="text=''">&times;</button>
         {{ text }}
-        </p>
-    </div>
+</p>
+</div>
     `
 })
