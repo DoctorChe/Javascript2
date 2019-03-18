@@ -1,0 +1,8 @@
+[
+    "{\"action\":\"change\",\"product\":\"продукт\",\"time\":\"Monday, March 18 2019, 3:44:58\"}",
+    "{\"action\":\"delete\",\"product\":\"продукт\",\"time\":\"Monday, March 18 2019, 3:49:56\"}",
+    "{\"action\":\"change\",\"product\":\"продукт\",\"time\":\"Monday, March 18 2019, 3:52:57\"}",
+    "{\"action\":\"change\",\"product\":\"продукт\",\"time\":\"Monday, March 18 2019, 3:54:48\"}",
+    "{\"action\":\"delete\",\"product\":\"продукт\",\"time\":\"Monday, March 18 2019, 3:55:07\"}",
+    "{\"action\":\"add\",\"product\":\"продукт\",\"time\":\"Monday, March 18 2019, 3:55:15\"}"
+]
