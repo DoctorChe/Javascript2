@@ -12,21 +12,18 @@ let handlerstats = (req, res, action, file) => {
         if(err){
             res.sendStatus(404, JSON.stringify({result:0, text: err}));
         } else {
+            let product_name = "product_name";
+            fs.readFile('server/db/products.json', 'utf-8', (err, data) => {
+                if(err){
+                    res.sendStatus(404, JSON.stringify({result:0, text: err}));
+                } else {
+                    product_name = JSON.parse(data).find(el => el.id_product === +req.params.id).product_name;
+                }
+            });
             let stats = JSON.parse(data);
-            console.log(req);
-            console.log(req.body);
-            // console.log(req.body['product_name']);
-            // let newEntry = JSON.stringify({action: action});
             let time = moment().format('dddd, MMMM DD YYYY, h:mm:ss');
-            console.log(time);
-            // let newEntry = new Entry(action);
-            let newEntry = new Entry(action, 'продукт', time);
-            // console.log(JSON.stringify(newEntry));
+            let newEntry = new Entry(action, product_name, time);
             stats.push(JSON.stringify(newEntry));
-            // stats.push(newEntry);
-            // console.log(stats);
-            // console.log(data);
-            // let newCart = JSON.stringify("new entry");
             fs.writeFile(file, JSON.stringify(stats, null, 4), (err) => {
                 // if(err){
                 //     res.sendStatus(404, JSON.stringify({result:0, text: err}));
