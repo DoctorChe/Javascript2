@@ -1,0 +1,37 @@
+[
+    {
+        "action": "add",
+        "prod_name": "Keyboard",
+        "time": "20 мар. 2019, 0:16:22"
+    },
+    {
+        "action": "change",
+        "prod_name": "Keyboard",
+        "time": "20 мар. 2019, 0:16:27"
+    },
+    {
+        "action": "change",
+        "prod_name": "Keyboard",
+        "time": "20 мар. 2019, 0:16:28"
+    },
+    {
+        "action": "remove",
+        "prod_name": "Keyboard",
+        "time": "20 мар. 2019, 0:16:28"
+    },
+    {
+        "action": "remove",
+        "prod_name": "Мышка",
+        "time": "20 мар. 2019, 0:25:06"
+    },
+    {
+        "action": "add",
+        "prod_name": "Keyboard",
+        "time": "20 мар. 2019, 0:25:14"
+    },
+    {
+        "action": "change",
+        "prod_name": "Keyboard",
+        "time": "20 мар. 2019, 0:25:14"
+    }
+]

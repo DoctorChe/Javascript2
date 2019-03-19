@@ -1,4 +1,4 @@
-Vue.component('error', {
+const error = {
     data(){
         return {
           text: ''
@@ -14,7 +14,9 @@ Vue.component('error', {
         <p class="error-msg">
         <button class="close-btn" @click="text=''">&times;</button>
         {{ text }}
-        </p>
-    </div>
+</p>
+</div>
     `
-})
+};
+
+export default error
