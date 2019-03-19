@@ -1,27 +1,20 @@
 Vue.component('products', {
-    data(){
-        return {
-            catalogUrl: '/catalogData.json',
-            filtered: [],
-            products: [],
-            imgProduct: 'https://placehold.it/200x150'
-        }
-    },
+   data(){
+       return {
+           catalogUrl: '/catalogData.json',
+           filtered: [],
+           products: [],
+           imgProduct: 'https://placehold.it/200x150'
+       }
+   },
     mounted(){
-        this.$parent.getJson(`${API + this.catalogUrl}`)
+        this.$parent.getJson(`/api/products`)
             .then(data => {
                 for (let item of data){
                     this.$data.products.push(item);
                     this.$data.filtered.push(item);
                 }
             });
-        this.$parent.getJson(`getProducts.json`)
-            .then(data => {
-                for(let item of data){
-                    this.$data.products.push(item);
-                    this.$data.filtered.push(item);
-                }
-            })
     },
     methods: {
         filter(userSearch){
@@ -29,7 +22,7 @@ Vue.component('products', {
             this.filtered = this.products.filter(el => regexp.test(el.product_name));
         }
     },
-    template: `<div class="products">
+   template: `<div class="products">
                 <product v-for="item of filtered" 
                 :key="item.id_product" 
                 :img="imgProduct"
