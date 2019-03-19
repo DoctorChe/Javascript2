@@ -2,7 +2,7 @@ const express = require('express');
 const fs = require('fs');
 const router = express.Router();
 const handler = require('./handler');
-const handlerstats = require('./handlerstats');
+// const handlerstats = require('./handlerStats');
 
 router.get('/', (req, res) => {
     fs.readFile('server/db/userCart.json', 'utf-8', (err, data) => {
@@ -15,15 +15,12 @@ router.get('/', (req, res) => {
 });
 router.post('/', (req, res) => {
     handler(req, res, 'add', 'server/db/userCart.json');
-    handlerstats(req, res, 'add', 'server/db/stats.json');
 });
 router.put('/:id', (req, res) => {
     handler(req, res, 'change', 'server/db/userCart.json');
-    handlerstats(req, res, 'change', 'server/db/stats.json');
 });
 router.delete('/:id', (req, res) => {
-    handler(req, res, 'change', 'server/db/userCart.json');
-    handlerstats(req, res, 'delete', 'server/db/stats.json');
+    handler(req, res, 'remove', 'server/db/userCart.json');
 });
 
 module.exports = router;
