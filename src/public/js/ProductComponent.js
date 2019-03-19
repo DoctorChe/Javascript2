@@ -1,4 +1,18 @@
-Vue.component('products', {
+const product = {
+    props: ['product', 'img'],
+    template: `
+            <div class="product-item">
+                <img :src="img" alt="Some img">
+                <div class="desc">
+                    <h3>{{product.product_name}}</h3>
+                    <p>{{product.price}}</p>
+                    <button class="buy-btn" @click="$emit('add-product', product)">Купить</button>
+                </div>
+            </div>
+    `
+};
+
+const products = {
    data(){
        return {
            catalogUrl: '/catalogData.json',
@@ -7,6 +21,9 @@ Vue.component('products', {
            imgProduct: 'https://placehold.it/200x150'
        }
    },
+    components: {
+      product
+    },
     mounted(){
         this.$parent.getJson(`/api/products`)
             .then(data => {
@@ -29,17 +46,7 @@ Vue.component('products', {
                 :product="item"
                 @add-product="$parent.$refs.cart.addProduct"></product>
                </div>`
-});
-Vue.component('product', {
-    props: ['product', 'img'],
-    template: `
-            <div class="product-item">
-                <img :src="img" alt="Some img">
-                <div class="desc">
-                    <h3>{{product.product_name}}</h3>
-                    <p>{{product.price}}</p>
-                    <button class="buy-btn" @click="$emit('add-product', product)">Купить</button>
-                </div>
-            </div>
-    `
-})
+};
+
+
+export default products

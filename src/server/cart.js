@@ -12,7 +12,6 @@ let remove = (cart, req) => {
     cart.contents.splice(cart.contents.indexOf(find), 1);
     return {newCart: JSON.stringify(cart, null, 4), name: find.product_name};
 };
-
 module.exports = {
     add,
     change,

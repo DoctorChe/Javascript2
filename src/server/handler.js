@@ -1,6 +1,6 @@
-const logger = require('./logger');
 const cart = require('./cart');
 const fs = require('fs');
+const logger = require('./logger');
 
 const actions = {
     add: cart.add,
